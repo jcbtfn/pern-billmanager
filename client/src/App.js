@@ -1,35 +1,18 @@
 import './App.css';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 
 //components
 
+import InputBills from './components/InputBills';
+import ListServices from './components/ListServices';
+
 function App() {
-
-  const [typeOfService, setDescription] = useState("");
-
-  const onSubmitForm = async(e) => {
-    e.preventDefault();
-    try {
-      const body = { typeOfService };
-      const response = await fetch("http://localhost:5000/services", {
-        method: "POST",
-        headers: { "Content-type": "application/json"},
-        body: JSON.stringify(body)
-      });
-
-      console.log(response);
-    } catch (err) {
-      console.error(err.message);
-    }
-  }
-
   return (
     <Fragment>
-        <h1 className="text-center mt5">PERN - Bill Calculator and Log</h1>
-        <form className='d-flex mt-5' onSubmit={onSubmitForm}>
-          <input type="text" className='form-control' value={typeOfService} onChange={e => setDescription(e.target.value)} />
-          <button className='btn btn-success'>Add</button>
-        </form>
+        <div className="container">
+          <InputBills />
+          <ListServices />
+        </div> 
     </Fragment>
   );
 }
