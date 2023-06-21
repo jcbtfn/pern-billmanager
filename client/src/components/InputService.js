@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 
-const InputBill = () => {
+const InputService = () => {
 
     const [typeOfService, setTypeOfService] = useState("");
     const [provider, setProvider] = useState("");
@@ -36,4 +36,4 @@ const InputBill = () => {
 
 
 
-export default InputBill;
+export default InputService;

@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 
+import EditService from "./EditService";
+
 const ListServices = () => {
 
     const [services, setServices] = useState([]);
@@ -61,7 +63,7 @@ const ListServices = () => {
                     <tr key={service.serviceid}>
                         <td>{service.typeofservice}</td>
                         <td>{service.provider}</td>
-                        <th>Edit</th>
+                        <th><EditService service={service} /></th>
                         <th>
                             <button className="btn btn-danger"
                                     onClick={() => deleteService(service.serviceid)}>
