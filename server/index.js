@@ -32,7 +32,7 @@ app.post("/services", async (req, res) => {
 app.get("/services", async (req, res) => {
 
     try{
-        const allServices = await pool.query("SELECT * FROM servicetype");
+        const allServices = await pool.query("SELECT * FROM servicetype ORDER BY serviceid");
         res.json(allServices.rows)
     } catch (err) {
         console.error(err.message)
