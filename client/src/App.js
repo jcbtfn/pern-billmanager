@@ -3,8 +3,8 @@ import React, { Fragment } from 'react';
 
 //components
 
-import InputService from './components/InputService';
-import ListServices from './components/ListServices';
+import InputService from './components/services/InputService';
+import ListServices from './components/services/ListServices';
 
 function App() {
   return (
