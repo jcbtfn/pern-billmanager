@@ -6,12 +6,12 @@ exports.post = async function (req, res) {
     try{
 
         const {typeOfService, provider} = req.body;
-        const newServiceType = await pool.query(
-            "INSERT INTO servicetype (typeofservice, provider) VALUES($1, $2) RETURNING *",
+        const newService = await pool.query(
+            "INSERT INTO services (typeofservice, provider) VALUES($1, $2) RETURNING *",
             [typeOfService, provider]
             );
 
-        res.json(newServiceType.rows[0]);
+        res.json(newService.rows[0]);
 
     } catch (err) {
         console.error(err.message);
@@ -23,7 +23,7 @@ exports.post = async function (req, res) {
 exports.list = async function (req, res) {
 
     try{
-        const allServices = await pool.query("SELECT * FROM servicetype ORDER BY serviceid");
+        const allServices = await pool.query("SELECT * FROM services ORDER BY serviceid");
         res.json(allServices.rows)
     } catch (err) {
         console.error(err.message)
@@ -38,7 +38,7 @@ exports.getbyid = async function (req, res) {
     try{
         const { id } = req.params;
         const service = await pool.query(
-            "SELECT * FROM servicetype WHERE serviceid = $1",
+            "SELECT * FROM services WHERE serviceid = $1",
             [id]
         );
 
@@ -58,7 +58,7 @@ exports.updateservice = async function (req, res) {
         const { id } = req.params;
         const { typeOfService, provider } = req.body;
         const updateService = await pool.query(
-            "UPDATE servicetype SET typeofservice = $1, provider = $2 WHERE serviceid = $3",
+            "UPDATE services SET typeofservice = $1, provider = $2 WHERE serviceid = $3",
             [typeOfService, provider, id]
         );
 
@@ -76,7 +76,7 @@ exports.deleteservice = async function (req, res) {
     try {
         const { id } = req.params;
         const deleteService = await pool.query (
-            "DELETE from servicetype WHERE serviceid =$1",
+            "DELETE from services WHERE serviceid =$1",
             [id] 
         );
 
