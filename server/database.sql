@@ -1,22 +1,15 @@
 CREATE DATABASE pernbillmanager;
 
-CREATE TABLE servicetype(
+CREATE TABLE services(
     serviceid SERIAL PRIMARY KEY,
-    typeofservice VARCHAR(255),
-    provider VARCHAR(255)
+    typeofservice VARCHAR(255) NOT NULL,
+    provider VARCHAR(255),
+    isfixedamount BOOLEAN
 );
 
-CREATE TABLE billperiod(
-    billperiodid SERIAL PRIMARY KEY,
-    billid VARCHAR(255),
-    startdate DATE,
-    enddate DATE,
-    totalamount INTEGER
-);
-
-CREATE TABLE billamount(
-    costid SERIAL PRIMARY KEY,
-    serviceid INTEGER REFERENCES servicetype(serviceid),
-    periodid INTEGER REFERENCES billperiod(billperiodid), 
+CREATE TABLE bills(
+    serviceid INTEGER REFERENCES services(serviceid),
+    billid SERIAL PRIMARY KEY,
+    billdate DATE NOT NULL,
     amount INTEGER
 );
