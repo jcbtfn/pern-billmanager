@@ -8,8 +8,8 @@ CREATE TABLE services(
 );
 
 CREATE TABLE bills(
-    serviceid INTEGER REFERENCES services(serviceid),
     billid SERIAL PRIMARY KEY,
+    amount INTEGER,
     billdate DATE NOT NULL,
-    amount INTEGER
+    serviceid INTEGER REFERENCES services(serviceid)
 );

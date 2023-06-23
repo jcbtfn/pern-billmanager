@@ -5,16 +5,21 @@ import React, { Fragment } from 'react';
 
 import InputService from './components/services/InputService';
 import ListServices from './components/services/ListServices';
+import InputBill from './components/bills/InputBill';
 
 function App() {
   return (
     <Fragment>
         <div className="container">
-          <InputService />
-          <ListServices />
+          <InputBill />
+
         </div> 
     </Fragment>
   );
 }
 
 export default App;
+
+
+// <InputService />
+// <ListServices />

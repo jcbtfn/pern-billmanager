@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const pool = require("./db");
 
 var service = require('./service');
+var bill = require('./bill')
 
 //middleware
 app.use(cors());
@@ -17,6 +17,9 @@ app.get("/services", service.list);
 app.get("/services/:id", service.getbyid);
 app.put("/services/:id", service.updateservice);
 app.delete("/services/:id", service.deleteservice);
+
+//BILLS - Go bill.js//
+app.post("/bills", bill.post);
 
 app.listen(5000, () => {
     console.log("\nServer has started on port 5000\n");

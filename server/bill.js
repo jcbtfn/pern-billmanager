@@ -4,10 +4,10 @@ const pool = require("./db");
 exports.post = async function (req, res) {
     try{
 
-        const {amount} = req.body;
+        const {amount, billdate} = req.body;
         const newBillAmount = await pool.query(
-            "INSERT INTO billamount (amount) VALUES($1) RETURNING *",
-            [amount]
+            "INSERT INTO bills (amount, billdate) VALUES ($1, $2) RETURNING *",
+            [amount, billdate]
             );
 
         res.json(newBillAmount.rows[0]);
