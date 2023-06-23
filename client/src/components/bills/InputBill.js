@@ -25,7 +25,7 @@ const InputBill = () => {
 
     return (
         <Fragment>
-            <h1 className="text-center mt5">Billing period: XXXX-XX</h1>
+            <h1 className="text-center mt5">Bill Manager - PERN project</h1>
             <form className='d-flex mt-5' onSubmit={onSubmitForm}>
                 <input type="text" className='form-control' value={amount} onChange={e => setAmount(e.target.value)} />
                 <input type="number" className='form-control' value={serviceid} onChange={e => setServiceId(e.target.value)} />

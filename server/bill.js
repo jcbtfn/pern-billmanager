@@ -21,7 +21,7 @@ exports.post = async function (req, res) {
 exports.list = async function (req, res) {
 
     try{
-        const allBills = await pool.query("SELECT * FROM bills JOIN services on bills.serviceid = services.serviceid ORDER BY billid");
+        const allBills = await pool.query("SELECT *, TO_CHAR(billdate, 'DD/MM/YYYY') AS billdateformatted FROM bills JOIN services on bills.serviceid = services.serviceid ORDER BY billid");
         res.json(allBills.rows)
     } catch (err) {
         console.error(err.message)
