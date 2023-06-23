@@ -29,6 +29,24 @@ exports.listbills = async function (req, res) {
 
 };
 
+//Get one bill by ID
+exports.getbillbyid = async function (req, res) {
+
+    try{
+        const { id } = req.params;
+        const bill = await pool.query(
+            "SELECT * FROM services WHERE billid = $1",
+            [id]
+        );
+
+        res.json(bill.rows[0]);
+
+    } catch (err) {
+        console.error(err.message)
+    }
+
+};
+
 
 // Delete a bill
 exports.deletebill = async function (req, res) {
