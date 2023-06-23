@@ -12,8 +12,10 @@ function App() {
   return (
     <Fragment>
         <div className="container">
+          <InputService />
           <InputBill />
           <ListBills />
+          <ListServices />
 
         </div> 
     </Fragment>

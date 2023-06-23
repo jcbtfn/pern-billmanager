@@ -18,7 +18,7 @@ exports.post = async function (req, res) {
 };
 
 //Get all bills
-exports.list = async function (req, res) {
+exports.listbills = async function (req, res) {
 
     try{
         const allBills = await pool.query("SELECT *, TO_CHAR(billdate, 'DD/MM/YYYY') AS billdateformatted FROM bills JOIN services on bills.serviceid = services.serviceid ORDER BY billid");
@@ -27,4 +27,20 @@ exports.list = async function (req, res) {
         console.error(err.message)
     }
 
+};
+
+
+// Delete a bill
+exports.deletebill = async function (req, res) {
+    try {
+        const { id } = req.params;
+        const deleteBill = await pool.query (
+            "DELETE from bills WHERE billid =$1",
+            [id] 
+        );
+
+        res.json ("Bill was deleted!");
+    } catch (error) {
+        console.error(err.message);
+    }
 };

@@ -13,14 +13,15 @@ app.use(express.json());
 
 //SERVICES - Go service.js//
 app.post("/services", service.post);
-app.get("/services", service.list);
-app.get("/services/:id", service.getbyid);
+app.get("/services", service.listservices);
+app.get("/services/:id", service.getservicebyid);
 app.put("/services/:id", service.updateservice);
 app.delete("/services/:id", service.deleteservice);
 
 //BILLS - Go bill.js//
 app.post("/bills", bill.post);
-app.get("/bills", bill.list);
+app.get("/bills", bill.listbills);
+app.delete("/bills", bill.deletebill)
 
 app.listen(5000, () => {
     console.log("\nServer has started on port 5000\n");

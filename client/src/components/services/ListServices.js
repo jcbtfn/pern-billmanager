@@ -49,6 +49,8 @@ const ListServices = () => {
                 <tr>
                     <th>Service</th>
                     <th>Provider</th>
+                    <th>Fixed Direct Debit</th>
+                    <th>Active</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -63,6 +65,8 @@ const ListServices = () => {
                     <tr key={service.serviceid}>
                         <td>{service.typeofservice}</td>
                         <td>{service.provider}</td>
+                        <td>Direct Debit</td>
+                        <td>Active</td>
                         <th><EditService service={service} /></th>
                         <th>
                             <button className="btn btn-danger"
