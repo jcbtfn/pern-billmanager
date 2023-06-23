@@ -20,7 +20,7 @@ exports.post = async function (req, res) {
 
 
 //Get all service types
-exports.list = async function (req, res) {
+exports.listservices = async function (req, res) {
 
     try{
         const allServices = await pool.query("SELECT * FROM services ORDER BY serviceid");
@@ -33,7 +33,7 @@ exports.list = async function (req, res) {
 
 
 //Get a service
-exports.getbyid = async function (req, res) {
+exports.getservicebyid = async function (req, res) {
 
     try{
         const { id } = req.params;

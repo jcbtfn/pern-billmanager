@@ -70,6 +70,7 @@ const ListBills = () => {
                     <th>Provider</th>
                     <th>Amount</th>
                     <th>Date</th>
+                    <th>Paid</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -101,6 +102,7 @@ const ListBills = () => {
                         <td>{bill.provider}</td>
                         <td>{bill.amount}</td>
                         <td>{bill.billdateformatted}</td>
+                        <td>[PAID]</td>
                         <td>EDIT</td>
                         <td>DELETE</td>
                     </tr>
