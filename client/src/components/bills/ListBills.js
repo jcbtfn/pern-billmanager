@@ -10,13 +10,13 @@ const ListBills = () => {
 
     // delete a service
 
-    const deleteService = async id => {
+    const deleteBill = async id => {
         try {
-            const deleteService = await fetch(`http://localhost:5000/services/${id}`, {
+            const deleteBill = await fetch(`http://localhost:5000/bills/${id}`, {
                 method: "DELETE"
             });
             
-            setServices(services.filter(service => service.serviceid !== id));
+            setBills(bills.filter(bill => bill.billid !== id));
 
         } catch (err) {
             console.error(err.message);
@@ -104,7 +104,12 @@ const ListBills = () => {
                         <td>{bill.billdateformatted}</td>
                         <td>[PAID]</td>
                         <td>EDIT</td>
-                        <td>DELETE</td>
+                        <th>
+                            <button className="btn btn-danger"
+                                    onClick={() => deleteBill(bill.billid)}>
+                                Delete
+                            </button>
+                        </th>
                     </tr>
                 ))}
             </tbody>
