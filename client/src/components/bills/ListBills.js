@@ -100,7 +100,7 @@ const ListBills = () => {
                         <td>{bill.typeofservice}</td>
                         <td>{bill.provider}</td>
                         <td>{bill.amount}</td>
-                        <td>{bill.billdate}</td>
+                        <td>{bill.billdateformatted}</td>
                         <td>EDIT</td>
                         <td>DELETE</td>
                     </tr>
