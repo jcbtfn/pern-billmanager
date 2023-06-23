@@ -20,6 +20,7 @@ app.delete("/services/:id", service.deleteservice);
 
 //BILLS - Go bill.js//
 app.post("/bills", bill.post);
+app.get("/bills", bill.list);
 
 app.listen(5000, () => {
     console.log("\nServer has started on port 5000\n");
