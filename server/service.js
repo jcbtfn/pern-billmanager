@@ -81,7 +81,7 @@ exports.deleteservice = async function (req, res) {
         );
 
         res.json ("Service was deleted!");
-    } catch (error) {
+    } catch (err) {
         console.error(err.message);
     }
 };

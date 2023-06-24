@@ -26,13 +26,13 @@ const EditService = ({ service }) => {
 
     return <Fragment>
 
-        <button type="button" class="btn btn-warning" data-toggle="modal" data-target={`#id${service.serviceid}`}>
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target={`#serviceid${service.serviceid}`}>
             Edit
         </button>
 
         <div 
             class="modal" 
-            id={`id${service.serviceid}`} 
+            id={`serviceid${service.serviceid}`} 
             onClick={() => (setTypeOfService(service.typeofservice), setProvider(service.provider))}
         >
             <div class="modal-dialog">

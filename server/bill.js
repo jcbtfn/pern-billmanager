@@ -35,7 +35,7 @@ exports.getbillbyid = async function (req, res) {
     try{
         const { id } = req.params;
         const bill = await pool.query(
-            "SELECT * FROM services WHERE billid = $1",
+            "SELECT * FROM bills WHERE billid = $1",
             [id]
         );
 
