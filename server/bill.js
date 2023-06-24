@@ -47,6 +47,25 @@ exports.getbillbyid = async function (req, res) {
 
 };
 
+//Update a bill information
+exports.updatebill = async function (req, res) {
+
+    try{
+        const { id } = req.params;
+        const { amount, billdate, ispaid, serviceid } = req.body;
+        const updateBill = await pool.query(
+            "UPDATE bills SET amount = $1, billdate = $2, ispaid = $3, serviceid = $4 WHERE billid = $5",
+            [amount, billdate, ispaid, serviceid, id]
+        );
+
+        res.json ("Bill was updated");
+
+    } catch (err) {
+        console.error(err.message);
+    }
+
+};
+
 
 // Delete a bill
 exports.deletebill = async function (req, res) {

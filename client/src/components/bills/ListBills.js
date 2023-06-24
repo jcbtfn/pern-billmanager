@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 
 //import EditService from "./EditService";
 import ListServices from "../services/ListServices";
+import EditBill from "./EditBill";
 
 const ListBills = () => {
 
@@ -102,8 +103,8 @@ const ListBills = () => {
                         <td>{bill.provider}</td>
                         <td>{bill.amount}</td>
                         <td>{bill.billdateformatted}</td>
-                        <td>[PAID]</td>
-                        <td>EDIT</td>
+                        <td>{bill.ispaid ? "IS PAID" : "NOT PAID"}</td>
+                        <th><EditBill bill={bill} /></th>
                         <th>
                             <button className="btn btn-danger"
                                     onClick={() => deleteBill(bill.billid)}>
