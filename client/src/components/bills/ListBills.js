@@ -1,12 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
 
 //import EditService from "./EditService";
-import ListServices from "../services/ListServices";
+//import ListServices from "../services/ListServices";
 import EditBill from "./EditBill";
 
 const ListBills = () => {
 
-    const [services, setServices] = useState([]);
+    //const [services, setServices] = useState([]);
     const [bills, setBills] = useState([]);
 
     // delete a service
@@ -26,7 +26,7 @@ const ListBills = () => {
 
     // get all the saved services and providers
 
-    const getServices = async() => {
+    {/*const getServices = async() => {
         try {
 
             const response = await fetch("http://localhost:5000/services");
@@ -37,7 +37,7 @@ const ListBills = () => {
         } catch (err) {
             console.error(err.message);
         }
-    };
+    };*/}
 
     const getBills = async() => {
         try {
@@ -52,15 +52,15 @@ const ListBills = () => {
         }
     };
 
-    useEffect(() => {
-        getServices();
-    }, []);
+    //useEffect(() => {
+    //    getServices();
+    //}, []);
 
     useEffect(() => {
         getBills();
     }, []);
     
-    console.log(services);
+    console.log(bills);
 
     return <Fragment>
         {" "}
