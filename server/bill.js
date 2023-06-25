@@ -29,6 +29,19 @@ exports.listbills = async function (req, res) {
 
 };
 
+//Get all bills in a certain month
+exports.listbillsbymonth = async function (req, res) {
+
+    try{
+        const allBillsForACertainMonth = await pool.query(
+            "SELECT *, TO_CHAR(billdate, 'DD/MM/YYYY') AS billdateformatted FROM bills JOIN services on bills.serviceid = services.serviceid WHERE EXTRACT(MONTH FROM billdate) = $1 AND EXTRACT(YEAR FROM billdate) = $2 ORDER BY billid");
+        res.json(allBills.rows)
+    } catch (err) {
+        console.error(err.message)
+    }
+
+};
+
 //Get one bill by ID
 exports.getbillbyid = async function (req, res) {
 
