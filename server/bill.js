@@ -52,10 +52,14 @@ exports.updatebill = async function (req, res) {
 
     try{
         const { id } = req.params;
-        const { amount, billdate, ispaid, serviceid } = req.body;
+        const { amount } = req.body;
         const updateBill = await pool.query(
-            "UPDATE bills SET amount = $1, billdate = $2, ispaid = $3, serviceid = $4 WHERE billid = $5",
-            [amount, billdate, ispaid, serviceid, id]
+            //"UPDATE bills SET amount = $1, billdate = $2, ispaid = $3, serviceid = $4 WHERE billid = $5",
+            //"UPDATE bills SET amount = $1, ispaid = $2, serviceid = $3 WHERE billid = $4",
+            "UPDATE bills SET amount = $1 WHERE billid = $2",
+            //[amount, billdate, ispaid, serviceid, id]
+            //[amount, ispaid, serviceid, id]
+            [amount, id]
         );
 
         res.json ("Bill was updated");
