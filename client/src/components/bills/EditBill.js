@@ -16,7 +16,7 @@ const EditBill = ({ bill }) => {
     const updateBill = async e => {
         e.preventDefault();
         try {
-            const body = { billAmount, billDate, isPaid, billServiceId };
+            const body = { billAmount };
             const response = await fetch(`http://localhost:5000/bills/${bill.billid}`, {
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
@@ -43,7 +43,7 @@ const EditBill = ({ bill }) => {
         <div 
             class="modal" 
             id={`billid${bill.billid}`} 
-            onClick={() => (setAmount(bill.amount), setBillDate(bill.billdateformatted), setIsPaid(bill.ispaid), setBillServiceId(bill.billServiceId))}
+            onClick={() => (setAmount(bill.amount))}
         >
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -51,7 +51,7 @@ const EditBill = ({ bill }) => {
                     <div class="modal-header">
                         <h4 class="modal-title">Edit Bill</h4>
                         <button type="button" class="close" data-dismiss="modal"
-                            onClick={() => (setAmount(bill.amount), setBillDate(bill.billdateformatted), setIsPaid(bill.ispaid), setBillServiceId(bill.billServiceId))}>
+                            onClick={() => (setAmount(bill.amount))}>
                             &times;
                         </button>
                     </div>
@@ -59,12 +59,7 @@ const EditBill = ({ bill }) => {
                     <div class="modal-body">
                         Amount -change this-: <input type='text' className="form-control" value={billAmount} 
                             onChange={e => setAmount(e.target.value)} />
-                        Bill Date -change this-: <input type='text' className="form-control" value={billDate}
-                            onChange={e => setBillDate(e.target.value)} />
-                        Is Paid -change this-: <input type='text' className="form-control" value={isPaid} 
-                            onChange={e => setIsPaid(e.target.value)} />
-                        billServiceId -change this-: <input type='text' className="form-control" value={billServiceId}
-                            onChange={e => setBillServiceId(e.target.value)} />
+
                     </div>
 
                     <div class="modal-footer">
@@ -74,7 +69,7 @@ const EditBill = ({ bill }) => {
                             Edit
                         </button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal"
-                            onClick={() => (setAmount(bill.amount), setBillDate(bill.billdateformatted), setIsPaid(bill.ispaid), setBillServiceId(bill.billServiceId))}>
+                            onClick={() => (setAmount(bill.amount))}>
                             Close
                         </button>
                     </div>
